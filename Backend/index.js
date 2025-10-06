@@ -2,7 +2,6 @@ const express = require("express")
 const Cors = require("cors")
 const connect  = require("./connceting/DB");
 const Userrouter = require("./Routes/User-Router")
-const musicRouter = require("./Routes/music-Router");
 const postrouter = require("./Routes/post-router");
 const helmet = require('helmet')
 const {Server} = require("socket.io")
