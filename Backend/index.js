@@ -18,14 +18,14 @@ app.use(helmet());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(Cors(
-    {origin: "http://localhost:5173"}
+    {origin: `${process.env.FRONTEND_URL || "http://localhost:5173"}`}
 ))
 // app.use(bodyParser.json());
 const server = http.createServer(app)
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // frontend ka URL daalna best practice hai
+    origin: `${process.env.FRONTEND_URL || "http://localhost:5173"}`, // frontend ka URL daalna best practice hai
     methods: ["GET", "POST"],
   },
 });
