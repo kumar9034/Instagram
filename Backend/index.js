@@ -48,7 +48,6 @@ io.on("connection", (socket) => {
 
 
 app.use("/user", Userrouter)
-app.use("/music", musicRouter)
 app.use("/post", postrouter)
 app.use("/chat", messageRouter)
 
