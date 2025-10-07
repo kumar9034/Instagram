@@ -40,7 +40,7 @@ const handlebutton = async (e)=>{
 
   return (
     <div className='w-full h-screen  '>
-            <div className='w-full h-[98%]  flex justify-center gap-5 items-center'>
+            <div className='w-full h-auto  flex justify-center gap-5 items-center'>
                 <div className='h-[40vh] hidden sm:block w-[40vw] flex justify-center items-center '>
                     <img src="landing-pageimage.png" alt="" />
                 </div>

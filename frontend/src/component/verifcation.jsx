@@ -51,17 +51,17 @@ try{
 
 
   return (
-    <div className='w-full h-screen flex justify-center items-center '>
+    <div className='w-full h-screen flex sm:justify-center items-center '>
       <Popup  message={error}/>
-      <div className='w-100 h-[70%] border-1 border-gray-300 shadow-lg text-center '>
-        <img className='w-[7vw] h-[20vh] ml-37 mt-5 ' src="phone1.png" alt="" />
-        <p className='text-md font-[500]  -mt-5'>just one more step</p>
-        <p className='flex flex-col text-center text-sm mt-10'>
+      <div className='sm:w-100 w-full h-full sm:h-[70%] border-1 border-gray-300 shadow-lg text-center '>
+        <img className='sm:w-[7vw] w-[4rem] h-[20vh] sm:ml-37 ml-30 sm:mt-5 mt-20' src="phone1.png" alt="" />
+        <p className='text-md font-[500] -ml-6 -mt-5'>just one more step</p>
+        <p className='flex flex-col text-center -ml-6 text-sm mt-10'>
           Enter the 6 Digit code we send : <span className='text-sm font-[500] '>
             {email}
           </span>
         </p>
-        <div className='w-70 h-10 border-1 border-gray-300 mt-4 ml-15 rounded bg-gray-100  hover:shadow-xl hover:scale-104 transfrom transition duration-300 '>
+        <div className='w-70 ml-8 h-10 border-1 border-gray-300 mt-4 sm:ml-15 rounded bg-gray-100  hover:shadow-xl hover:scale-104 transfrom transition duration-300 '>
           <input
           value={otp}
           onChange={(e)=>{setotp(e.target.value)}}

@@ -22,6 +22,7 @@ export default function Posts() {
         }
       });
       setimage(res.data.path)
+      console.log(res)
     }
 
   const handleSubmit = async (e) => {

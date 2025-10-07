@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express")
 const Usermodel = require("../model/User")
 const bcrypt = require("bcrypt")
@@ -7,7 +8,7 @@ const jwt = require("jsonwebtoken")
 const isloggedIn = require("../config/isloggedin")
 const Upload = require("../config/multer")
 const postModel = require("../model/post")
-
+const Brevo = require('@getbrevo/brevo');
 
 const router = express.Router()
 let blacklist = [];
@@ -15,6 +16,11 @@ let blacklist = [];
 router.post("/", async (req, res )=>{
  try{
     const {fullname, email, password, username} = req.body
+
+    const existingUser = await Usermodel.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "Email already registered" });
+    }
 
  const hashedPassword = await bcrypt.hash(password, 10)
 
@@ -34,51 +40,45 @@ router.post("/", async (req, res )=>{
  
 
 })
+
+const apiInstance = new Brevo.TransactionalEmailsApi();
+apiInstance.setApiKey(Brevo.TransactionalEmailsApiApiKeys.apiKey,process.env.BREVO_API_KEY);
+
+
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
-router.post("/send-otp",async (req, res)=>{
-  
-const { email } = req.body;
+
+// OTP route
+router.post("/send-otp", async (req, res) => {
+  const { email } = req.body;
   if (!email) {
     return res.status(400).json({ error: "Email is required" });
   }
+  const existingUser = await Usermodel.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "Email already registered" });
+    }
 
   const otp = generateOTP();
 
+  const sendSmtpEmail = new Brevo.SendSmtpEmail();
+  sendSmtpEmail.sender = { email: process.env.FROM_EMAIL };
+  sendSmtpEmail.to = [{ email }];
+  sendSmtpEmail.subject = "Your OTP Code";
+  sendSmtpEmail.htmlContent = `<h2>Your OTP is: ${otp}</h2>`;
+
   try {
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: false, // TLS
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    // Mail options
-    const mailOptions = {
-      from: process.env.FROM_EMAIL,
-      to: email,
-      subject: "Your OTP Code",
-      text: `Your OTP is: ${otp}`,
-    };
-
-    // Send email
-    await transporter.sendMail(mailOptions);
+    await apiInstance.sendTransacEmail(sendSmtpEmail);
 
     otpStore[email] = otp;
 
-    res.status(200).json({ message: "OTP sent successfully", }); // normally OTP ko client me na bheje
+    res.status(200).json({ message: "OTP sent successfully" });
   } catch (error) {
-    console.error(error);
+    console.error("Error sending OTP:", error);
     res.status(500).json({ error: "Failed to send OTP" });
   }
-
-
-})
+});
 router.post("/verify-otp", (req, res) => {
   const { email, otp } = req.body;
   if (!email || !otp) {
