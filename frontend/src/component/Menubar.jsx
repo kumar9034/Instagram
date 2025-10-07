@@ -10,9 +10,9 @@ const Menubar = () => {
   return (
     <div >
       <div className='sm:w-30 w-15 sm:h-auto h-screen border-1 border-gray-300 flex flex-col items-center'>
-          <img className='sm:w-16 w-13 sm:h-16 h-13 mt-10' src="/logo1.png" alt="" />
+          <img className='sm:w-16 w-13 sm:h-16 h-13 mt-8' src="/logo1.png" alt="" />
         <a href="/dashboard" smooth={true} duration={500}>
-        <div className='sm:mt-15 mt-35 flex flex-col justify-center items-center gap-2'>
+        <div className='sm:mt-15 mt-30 flex flex-col justify-center items-center gap-2'>
           <img className='w-5 h-5' src="/Home.png" alt="" />
           <p className='sm:text-[13px] text-[10px] sm:font-[700] font-[400] '>Home</p>
         </div>
