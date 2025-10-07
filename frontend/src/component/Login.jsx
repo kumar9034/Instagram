@@ -41,7 +41,7 @@ const handlebutton = async (e)=>{
   return (
     <div className='w-full h-screen  '>
             <div className='w-full h-[98%]  flex justify-center gap-5 items-center'>
-                <div className='h-[40vh] w-[40vw] flex justify-center items-center '>
+                <div className='h-[40vh] hidden sm:block w-[40vw] flex justify-center items-center '>
                     <img src="landing-pageimage.png" alt="" />
                 </div>
                 <div className='w-[40vw] h-full  flex flex-col items-center  '>
@@ -83,9 +83,9 @@ const handlebutton = async (e)=>{
                         </h1>
                         </a>
                         <span className='flex mt-5'>
-                            <p className='text-sm font-[400]'>Don't have an account?</p>
+                            <p className='text-sm w-40 font-[400]'>Don't have an account?</p>
                         <a href="/register">
-                            <h1 className='text-sm text-blue-500 font-[600] ml-1'>
+                            <h1 className='text-sm w-20 text-blue-500 font-[600] ml-1'>
                                 Sign up
                             </h1>
                         </a>

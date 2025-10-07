@@ -70,12 +70,12 @@ const register = () => {
   return (
     <div className='w-full h-auto flex justify-center items-center flex-col'>
       <Popup message={error} />
-      <div className='w-100 h-[100vh] mt-3 border-1 border-gray-300 shadow-md flex flex-col '>
-        <div className='w-90 h-[35vh] ml-20  '>
+      <div className='sm:w-100 w-full  h-auto sm:mt-3 mt-0 sm:border-1 sm:border-gray-300 sm:shadow-md flex flex-col '>
+        <div className='sm:w-90 w-full h-[35vh] sm:ml-20 pl-10  '>
           <img className=' mt-10 ml-15 w-30 h-[18vh]' src="register-logo1.webp" alt="" />
-          <p className='w-[20vw] h-[20vh] lg-ml-7 text-center font-[700] text-[1.2vw] text-[#737373]'>Sign up to see photos and videos from your friends.</p>
+          <p className='sm:w-[20vw] w-[12rem] h-[20vh] sm:ml-5 ml-7 text-center font-[700] sm:text-[1.2vw] text-[12px] text-[#737373]'>Sign up to see photos and videos from your friends.</p>
         </div>
-        <div className='ml-20 gap-2 flex flex-col'>
+        <div className='sm:ml-20 ml-15 gap-2 flex flex-col'>
           <div className='w-60 h-10 border-1 border-gray-300  rounded '>
             <input
             value={email}
@@ -101,13 +101,13 @@ const register = () => {
             className='w-full h-full py-2 px-3 text-sm outline-none ' type="text" placeholder=' Username' />
           </div>
         </div>
-        <div className='pl-10 pr-5 pt-8  text-center text-[1vw] font-[500] text-[#737373]'>
-          People who use our service may have uploaded your contact information to Instagram. <span className='text-blue-500 font-[500] text-[1vw]'>Learn More</span>
+        <div className='sm:pl-10 pl-5 pr-5 pt-8  text-center sm:text-[1vw] text-[9px] font-[500] text-[#737373]'>
+          People who use our service may have uploaded your contact information to Instagram. <span className='text-blue-500 font-[500] sm:text-[1vw] text-[9px]'>Learn More</span>
         </div>
-        <div className='pl-10 pr-5 pt-4  text-center text-[1vw] font-[400] text-[#737373]'>
-          By signing up, you agree to our  <span className='text-blue-500 font-[400] text-[1vw]'>Terms , Privacy Policy and Cookies Policy .</span>
+        <div className='sm:pl-10 pl-5 pr-5 pt-4  text-center sm:text-[1vw] text-[9px] font-[400] text-[#737373]'>
+          By signing up, you agree to our  <span className='text-blue-500 font-[400] sm:text-[1vw] text-[9px]'>Terms , Privacy Policy and Cookies Policy .</span>
         </div>
-        <div className='mt-5 ml-20'>
+        <div className='mt-5 sm:ml-20 pl-10'>
           <button
           onClick={handlebutton}
           className='px-25 py-2  font-semibold text-white rounded bg-gradient-to-r from-[#feda75] via-[#d62976] to-[#4f5bd5] shadow-lg hover:scale-95 transform transition duration-300 cursor-pointer'>
@@ -115,7 +115,7 @@ const register = () => {
           </button>
         </div>
       </div>
-      <div className='w-[30vw] h-[13vh] border-1 shadow-md rounded border-gray-300 mt-10 mb-10 flex flex-col justify-center items-center  '>
+      <div className='sm:w-[30vw] w-[10rem] h-[13vh] border-1 shadow-md rounded border-gray-300 mt-10   mb-10 flex flex-col justify-center items-center  '>
         <p className='text-sm font-[400]'>Have an account?</p>
         <a href="/">
         <span className='text-md font-[500] text-blue-500 '>Log in</span>
