@@ -106,7 +106,7 @@ const UserProfile = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-full sm:h-40 h-20 flex  gap-10 sm:mt-5 mt-7 px-30 py-5 overflow-hidden overflow-scroll no-scrollbar'>
+                <div className='w-full sm:h-40  flex  gap-10 sm:mt-5 mt-5 px-30 py-5 overflow-hidden overflow-scroll no-scrollbar'>
                     <input hidden ref={Inputref} type="file" />
                     <div
                         onClick={imageadd}
