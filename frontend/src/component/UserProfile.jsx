@@ -71,42 +71,42 @@ const UserProfile = () => {
 
             <Profileimage images={image} off={() => setimage(false)}>
             </Profileimage>
-            <div className=' w-full ml-30 h-full flex flex-col overflow-y-auto no-scrollbar items-center'>
-                <div className='flex h-70 '>
-                    <div className='mt-18 ml-35'>
-                        <div className='w-[12vw] h-[25vh]   rounded-full  border-gray-300 flex justify-center  overflow-hidden'>
+            <div className=' w-full sm:ml-30  pl-18 h-full flex flex-col overflow-y-auto no-scrollbar'>
+                <div className='sm:flex sm:h-70 h-[28rem]'>
+                    <div className='sm:mt-18 mt-10 sm:ml-35 ml-5 '>
+                        <div className='sm:w-[12vw] w-[15vh] sm:h-[25vh] h-[15vh]   rounded-full  border-gray-300 flex justify-center  overflow-hidden'>
                             <img className='w-full h-full object-cover' src={details?.image || "/man-avatar.png"} alt="" />
                         </div>
 
                     </div>
-                    <div className='ml-20 w-[40vw] h-50 mt-10  p-5'>
+                    <div className='sm:ml-20  w-[40vw] h-50 sm:mt-10 mt-5  sm:p-5 px-3'>
                         <div className='flex gap-4'>
-                            <h1 className='text-xl font-[400] '>{username}</h1>
+                            <h1 className='sm:text-xl text-lg font-[400] '>{username}</h1>
                         </div>
                         <div className='mt-4 flex gap-7'>
-                            <p className='text-lg font-[500] flex gap-1 '>{Allpost.length}<span className='text-lg text-[#737373] font-[400]'>posts</span></p>
-                            <p className='text-lg font-[500] flex gap-1 '>{followers}<span className='text-md text-[#737373] font-[400]'>followers</span></p>
-                            <p className='text-lg font-[500] flex gap-1 '>{following}<span className='text-md text-[#737373] font-[400]'>following</span></p>
+                            <p className='sm:text-lg text-sm font-[500] flex gap-1 '>{Allpost.length}<span className=' text-[#737373] font-[400]'>posts</span></p>
+                            <p className='sm:text-lg text-sm font-[500] flex gap-1 '>{followers}<span className=' text-[#737373] font-[400]'>followers</span></p>
+                            <p className='sm:text-lg text-sm font-[500] flex gap-1 '>{following}<span className=' text-[#737373] font-[400]'>following</span></p>
                         </div>
                         <div className='mt-4 gap-5 flex'>
                             <button
                                 onClick={handlebutton}
-                                className={`px-15 py-2 text-sm rounded-lg font-semibold cursor-pointer transform duration-300 transition 
+                                className={`sm:px-15 px-8 py-2 text-sm rounded-lg font-semibold cursor-pointer transform duration-300 transition 
                                 ${isFollowing ? 'bg-gray-300 text-black hover:scale-95 hover:shadow-lg' : 'bg-blue-500 text-white hover:scale-95 hover:shadow-lg'}`}
                             >
                                 {isFollowing ? 'Following' : 'Follow'}
                             </button>
 
-                            <button className='px-15 py-2 bg-gray-200 text-black text-sm rounded-lg font-semibold cursor-pointer'>
+                            <button className='sm:px-15 px-8 py-2 bg-gray-200 text-black text-sm rounded-lg font-semibold cursor-pointer'>
                                 Message
                             </button>
                         </div>
-                        <div className='w-50 mt-5 text-[14px] font-[600]'>
+                        <div className='w-50 h-auto mt-5 sm:text-[14px] text-[12px] font-[600]'>
                             <p>{details?.bio}</p>
                         </div>
                     </div>
                 </div>
-                <div className='w-full h-40 flex  gap-10 mt-5 px-30 py-5 overflow-hidden overflow-scroll no-scrollbar'>
+                <div className='w-full sm:h-40 h-20 flex  gap-10 sm:mt-5 mt-7 px-30 py-5 overflow-hidden overflow-scroll no-scrollbar'>
                     <input hidden ref={Inputref} type="file" />
                     <div
                         onClick={imageadd}
@@ -123,21 +123,21 @@ const UserProfile = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-[79vw]  flex flex-col   ml-15  h-auto'>
-                    <div className='flex w-full h-10 px-20 py-10  justify-between '>
+                <div className='sm:w-[79vw] w-full  flex flex-col   sm:ml-15  h-auto'>
+                    <div className='flex w-full h-10 sm:px-20 px-10  py-10 justify-between'>
                         <div>
-                            <img className='w-10 h-10' src="/total.png" alt="" />
+                            <img className='sm:w-10 w-6 sm:h-10 h-6' src="/total.png" alt="" />
                         </div>
                         <div>
-                            <img className='w-8 h-8' src="/video.png" alt="" />
+                            <img className='sm:w-8 w-4 sm:h-8 h-4' src="/video.png" alt="" />
                         </div>
                         <div>
-                            <img className='w-8 h-8' src="/bookmark.png" alt="" />
+                            <img className='sm:w-8 w-4 sm:h-8 h-4' src="/bookmark.png" alt="" />
                         </div>
                     </div>
                     <div className='w-full h-full  p-2 flex flex-wrap gap-1'>
-                        {Allpost.map((items) => <div key={items.id}>
-                            <img className='w-[25vw] h-[65vh] object-cover rounded' src={items.image} alt="" />
+                        {Allpost.map((items) => <div key={items.id} className='sm:w-[25vw] w-[40%] h-auto sm:h-[65vh]'>
+                            <img className='sm:w-[25vw] w-[100%] h-auto sm:h-[65vh] object-cover rounded' src={items.image} alt="" />
                         </div>
                         )}
 
